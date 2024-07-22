@@ -6,6 +6,8 @@ public class Car
 {
     public Car()
     {
+        CarLot.numberOfCars++;
+        
     }
 
     public Car(int year, string make, string model, bool isDrivable, string engineNoise, string honkNoise)

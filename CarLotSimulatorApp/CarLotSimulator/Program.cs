@@ -7,7 +7,7 @@ namespace CarLotSimulator
         static void Main(string[] args)
         {
             //TODO
-            var lot = new Carlot();
+            var lot = new CarLot();
             
             //Create a seperate class file called Car
             //Car shall have the following properties: Year, Make, Model, EngineNoise, HonkNoise, IsDriveable
@@ -29,7 +29,7 @@ namespace CarLotSimulator
             
             myCar.MakeEngineNoise();
             myCar.MakeHonkNoise();
-            
+            Console.WriteLine($"The current number of cars is {CarLot.numberOfCars}");
             lot.Cars.Add(myCar);
 
             var dadCar = new Car()
@@ -44,14 +44,15 @@ namespace CarLotSimulator
             
             dadCar.MakeEngineNoise();
             dadCar.MakeHonkNoise();
-            
+            Console.WriteLine($"The current number of cars is {CarLot.numberOfCars}");
             lot.Cars.Add(dadCar);
 
             var momCar = new Car(2024, "Mercedes", "GLE", true, "voom", "beep");
             
             momCar.MakeEngineNoise();
             momCar.MakeHonkNoise();
-            
+            CarLot.numberOfCars++;
+            Console.WriteLine($"The current number of cars is {CarLot.numberOfCars}");
             lot.Cars.Add(momCar);
             //*************BONUS*************//
 
@@ -63,13 +64,7 @@ namespace CarLotSimulator
             //It should have at least one property: a List of cars
             //Instanciate the Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
-            Console.WriteLine($"There are {lot.Cars.Count} Cars in the Car Lot");
-            var cars = 0;
-            foreach(var car in lot.Cars)
-            {
-                cars++;
-                Console.WriteLine($"{cars}. {car.Year} {car.Make} {car.Model}");
-            }
+            lot.CarsInLot();
         }
     }
 }
